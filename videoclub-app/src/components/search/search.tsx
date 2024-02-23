@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdSearch } from 'react-icons/md'
+import { MdSearch, MdClear } from 'react-icons/md'
 import { Context } from '@/core/context'
 import styles from './search.module.scss'
 
@@ -27,10 +27,16 @@ export const Search = () => {
       <input
         aria-label='Search movies'
         type='text'
-        placeholder='Search movies'
         className={styles.input}
+        value={input}
+        placeholder='Search movies'
         onChange={(e) => setInput(e.target.value)}
       />
+      {input && (
+        <button className={styles.button} onClick={() => setInput('')}>
+          <MdClear size={25} />
+        </button>
+      )}
     </div>
   )
 }

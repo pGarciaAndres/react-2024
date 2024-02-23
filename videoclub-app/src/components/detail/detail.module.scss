@@ -5,6 +5,7 @@
   gap: 1em;
   padding: 2em;
   max-width: 600px;
+  padding-top: 15em;
 }
 
 h1 {
@@ -68,8 +69,12 @@ h1 {
     color: black;
   }
 
-  .favButton {
+  .noFavButton {
     background-color: black;
+    color: white;
+  }
+  .favButton {
+    background-color: rgb(205, 0, 82);
     color: white;
   }
 
@@ -86,4 +91,9 @@ p {
   font-weight: 100;
   font-family: system-ui;
   color: lightgray;
+}
+
+.relatedMovies {
+  margin: 2em;
+  border-top: 1px solid lightgray;
 }

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+.loadMoreButton {
+  text-transform: uppercase;
+  border: 1px solid white;
+  padding: 0.8em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 200px;
+}
