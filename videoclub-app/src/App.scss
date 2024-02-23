@@ -1,0 +1,12 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #141414;
+  color: white;
+  font-family: 'Jost', sans-serif;
+  gap: 2.5em;
+}
+
+#root {
+  padding: 2rem;
+}

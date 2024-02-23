@@ -1,0 +1,31 @@
+.movieList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 100%;
+  gap: 30px;
+}
+
+.movie {
+  text-align: center;
+
+  .posterContainer {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+      transition: transform 0.5s ease;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.3);
+      }
+    }
+  }
+}
