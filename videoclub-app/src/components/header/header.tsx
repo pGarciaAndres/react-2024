@@ -5,7 +5,8 @@ import styles from './header.module.scss'
 export const Header: React.FC = () => {
   return (
     <nav className={styles.container}>
-      <img src={logo} alt='logo' />
+      <div className={styles.overlay} />
+      <img src={logo} alt='header image' />
     </nav>
   )
 }

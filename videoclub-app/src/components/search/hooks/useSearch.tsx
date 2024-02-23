@@ -2,7 +2,7 @@ import React from 'react'
 import { Context } from '@/core/context'
 import { useQuery } from '@tanstack/react-query'
 import { getMovies } from '@/components/search/api/moviesAPI'
-import { Movie } from '@/components/movies/model/movieModel'
+import { Movie } from '@/components/movies/model/movie.model'
 import { MovieAPI } from '@/components/search/api/moviesAPI.model'
 
 export const useSearch = () => {

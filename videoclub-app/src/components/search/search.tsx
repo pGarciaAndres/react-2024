@@ -4,33 +4,32 @@ import { Context } from '@/core/context'
 import styles from './search.module.scss'
 
 export const Search = () => {
-  const { search, setCurrentPage } = React.useContext(Context)
+  const { search, setSearch, setCurrentPage } = React.useContext(Context)
   const [input, setInput] = React.useState<string>(search)
-  // const { refetch } = useSearch()
-  // const debounceInput = useDebounce(input, 500)
+  const [debounceInput, setDebounceInput] = React.useState(input)
 
-  // React.useEffect(() => {
-  // if (debounceInput === '') return
-  // setSearch(debounceInput)
-  // setCurrentPage(1)
-  // }, [debounceInput])
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebounceInput(input)
+    }, 1000)
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!input) return
-    // refetch()
-    console.log(e.target.value)
-    setInput(e.target.value)
+    return () => clearTimeout(timer)
+  }, [input])
+
+  React.useEffect(() => {
+    setSearch(debounceInput)
     setCurrentPage(1)
-  }
+  }, [debounceInput, setCurrentPage, setSearch])
 
   return (
     <div className={styles.container}>
-      <MdSearch />
+      <MdSearch size={32} />
       <input
+        aria-label='Search movies'
         type='text'
         placeholder='Search movies'
         className={styles.input}
-        onChange={handleSearch}
+        onChange={(e) => setInput(e.target.value)}
       />
     </div>
   )

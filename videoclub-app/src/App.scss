@@ -1,12 +1,14 @@
 body {
+  margin: 0;
   display: flex;
   flex-direction: column;
-  background-color: #141414;
+  background-color: #242424;
   color: white;
   font-family: 'Jost', sans-serif;
   gap: 2.5em;
 }
 
+:root,
 #root {
-  padding: 2rem;
+  color-scheme: light dark;
 }

@@ -1,4 +1,6 @@
-import { Movie } from '@/components/movies/model/movieModel'
+import { Link } from 'react-router-dom'
+import { Movie } from '@/components/movies/model/movie.model'
+import { routes } from '@/core/router'
 import styles from './movieList.module.scss'
 
 type Props = {
@@ -12,9 +14,11 @@ export const MovieList = (props: Props) => {
       {movies.map((movie) => (
         <li className={styles.movie} key={movie.id}>
           <h3>{movie.title}</h3>
-          <div className={styles.posterContainer}>
-            <img src={movie.poster} alt={movie.title} />
-          </div>
+          <Link to={routes.movie(movie.id)}>
+            <div className={styles.posterContainer}>
+              <img src={movie.poster} alt={movie.title} />
+            </div>
+          </Link>
         </li>
       ))}
     </ul>

@@ -1,3 +1,5 @@
+import { Layout } from '@/layout/layout'
+
 export const PageNotFound = () => {
-  return <div>Page not found</div>
+  return <Layout>Page not found</Layout>
 }
