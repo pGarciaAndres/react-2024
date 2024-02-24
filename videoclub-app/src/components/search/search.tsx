@@ -4,7 +4,7 @@ import { Context } from '@/core/context'
 import styles from './search.module.scss'
 
 export const Search = () => {
-  const { search, setSearch, setCurrentPage } = React.useContext(Context)
+  const { search, setSearch } = React.useContext(Context)
   const [input, setInput] = React.useState<string>(search)
   const [debounceInput, setDebounceInput] = React.useState(input)
 
@@ -18,8 +18,7 @@ export const Search = () => {
 
   React.useEffect(() => {
     setSearch(debounceInput)
-    setCurrentPage(1)
-  }, [debounceInput, setCurrentPage, setSearch])
+  }, [debounceInput, setSearch])
 
   return (
     <div className={styles.container}>

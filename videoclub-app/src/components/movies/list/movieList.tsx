@@ -1,25 +1,23 @@
-import { Link } from 'react-router-dom'
-import { Movie } from '@/components/movies/model/movie.model'
-import { routes } from '@/core/router'
+import React from 'react'
+import {
+  Movie as MovieModel,
+  MoviePage,
+  MoviePageList
+} from '@/components/movies/model/movie.model'
+import { Movie } from '@/components/movies/movie/movie'
 import styles from './movieList.module.scss'
 
-type Props = {
-  movies: Movie[]
-}
-export const MovieList = (props: Props) => {
+export const MovieList: React.FC<MoviePageList> = (props: MoviePageList) => {
   const { movies } = props
 
   return movies?.length > 0 ? (
     <ul className={styles.movieList}>
-      {movies.map((movie) => (
-        <li className={styles.movie} key={movie.id}>
-          <h3>{movie.title}</h3>
-          <Link to={routes.movie(movie.id)}>
-            <div className={styles.posterContainer}>
-              <img src={movie.poster} alt={movie.title} />
-            </div>
-          </Link>
-        </li>
+      {movies.map((group: MoviePage, i: number) => (
+        <React.Fragment key={i}>
+          {group.movies.map((movie: MovieModel) => (
+            <Movie movie={movie} />
+          ))}
+        </React.Fragment>
       ))}
     </ul>
   ) : (

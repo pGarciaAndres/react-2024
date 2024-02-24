@@ -5,28 +5,7 @@
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
   width: 100%;
   gap: 30px;
-}
-
-.movie {
-  text-align: center;
-  max-width: 210px;
-
-  .posterContainer {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    cursor: pointer;
-
-    img {
-      transition: transform 0.5s ease;
-    }
-
-    &:hover {
-      img {
-        transform: scale(1.3);
-      }
-    }
-  }
 }

@@ -31,7 +31,7 @@ export const Detail: React.FC<Props> = (props: Props) => {
     setSearch(relatedWord)
   })
 
-  const { movies } = useSearch()
+  const { data } = useSearch()
 
   const goBack = () => {
     setSearch(input)
@@ -45,7 +45,13 @@ export const Detail: React.FC<Props> = (props: Props) => {
   return (
     <>
       <div className={styles.container}>
-        <img className={styles.poster} src={detail.poster} alt={detail.title} />
+        {detail.poster && (
+          <img
+            className={styles.poster}
+            src={detail.poster}
+            alt={detail.title}
+          />
+        )}
         <h1>{detail.title}</h1>
         <div className={styles.buttonsContainer}>
           <button className={styles.backButton} onClick={goBack}>
@@ -74,9 +80,12 @@ export const Detail: React.FC<Props> = (props: Props) => {
         </div>
         <p>{detail.overview}</p>
       </div>
-      <div className={styles.relatedMovies}>
-        <MovieList movies={movies} />
-      </div>
+      {data && (
+        <div className={styles.relatedMovies}>
+          <h2>We think you'll like this</h2>
+          <MovieList movies={data.pages} />
+        </div>
+      )}
     </>
   )
 }

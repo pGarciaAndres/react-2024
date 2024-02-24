@@ -3,7 +3,7 @@ import { Detail } from '@/components/detail/detail'
 import { useParams } from 'react-router-dom'
 import { MovieLayout } from '@/layout/movieLayout'
 
-export const Movie: React.FC = () => {
+export const MovieDetail: React.FC = () => {
   const { id = '' } = useParams()
 
   return (

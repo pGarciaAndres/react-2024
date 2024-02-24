@@ -1,3 +1,3 @@
 export * from './Home'
-export * from './Movie'
+export * from './MovieDetail'
 export * from './PageNotFound'

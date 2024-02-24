@@ -1,12 +1,12 @@
 import React from 'react'
 import { Context } from '@/core/context'
-import { useQuery } from '@tanstack/react-query'
+import { useInfiniteQuery } from '@tanstack/react-query'
 import { getMovies } from '@/components/search/api/moviesAPI'
 import { Movie } from '@/components/movies/model/movie.model'
 import { MovieAPI } from '@/components/search/api/moviesAPI.model'
 
 export const useSearch = () => {
-  const { search, currentPage, setCurrentPage } = React.useContext(Context)
+  const { search } = React.useContext(Context)
 
   const mapMoviesAPItoMovie = (movies: MovieAPI[]): Movie[] => {
     return movies.map((movie: MovieAPI) => ({
@@ -18,42 +18,28 @@ export const useSearch = () => {
     }))
   }
 
-  const searchMovies = async (search: string) => {
-    const movies = await getMovies(search, currentPage)
-    return mapMoviesAPItoMovie(movies)
+  const searchMovies = async ({ pageParam = 0 }) => {
+    const data = await getMovies(search, pageParam)
+    const result = {
+      page: data.page,
+      movies: mapMoviesAPItoMovie(data.results),
+      totalPages: data.total_pages
+    }
+
+    return result
   }
 
-  const loadMore = async () => {
-    setCurrentPage(currentPage + 1)
-
-    getMovies(search, currentPage + 1).then((res) => {
-      const more = mapMoviesAPItoMovie(res)
-      movies.push(...more)
-    })
-
-    // const more = await getMovies(search, currentPage + 1)
-    // const moreMovies = mapMoviesAPItoMovie(more)
-    // return [...movies, ...moreMovies]
-  }
-
-  // useEffect(() => {
-  //   debugger
-  //   getMovies(search, currentPage).then((res) => {
-  //     const more = mapMoviesAPItoMovie(res)
-  //     movies.push(...more)
-  //   })
-  // }, [currentPage, search])
-
-  const {
-    data: movies = [],
-    isLoading,
-    isError,
-    refetch
-  } = useQuery({
+  const { data, isLoading, isError, fetchNextPage } = useInfiniteQuery({
+    initialPageParam: 1,
     queryKey: ['movies', search],
-    queryFn: () => searchMovies(search),
-    enabled: true
+    queryFn: searchMovies,
+    getNextPageParam: (lastPage) => lastPage && lastPage.page + 1
   })
 
-  return { movies, isLoading, isError, refetch, loadMore }
+  return {
+    data,
+    isLoading,
+    isError,
+    fetchNextPage
+  }
 }

@@ -4,7 +4,13 @@ import { MovieList } from '@/components/movies/list/movieList'
 import styles from './movies.module.scss'
 
 export const Movies: React.FC = () => {
-  const { isLoading, isError, movies, loadMore } = useSearch()
+  const { isLoading, isError, data, fetchNextPage } = useSearch()
+  let hasMoreElements = false
+
+  if (data) {
+    const lastElement = data.pages[data.pages.length - 1]
+    hasMoreElements = lastElement.totalPages > lastElement.page
+  }
 
   if (isError) {
     return <div>Unable to load movies</div>
@@ -16,10 +22,15 @@ export const Movies: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <MovieList movies={movies} />
-      <button className={styles.loadMoreButton} onClick={loadMore}>
-        Load more
-      </button>
+      {data && <MovieList movies={data.pages} />}
+      {hasMoreElements && (
+        <button
+          className={styles.loadMoreButton}
+          onClick={() => fetchNextPage()}
+        >
+          Load more
+        </button>
+      )}
     </div>
   )
 }

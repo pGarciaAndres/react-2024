@@ -1,0 +1,28 @@
+.movieItem {
+  text-align: center;
+  max-width: 210px;
+
+  @media (max-width: 511px) {
+    max-width: 300px;
+  }
+
+  .posterContainer {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 315px;
+
+    img {
+      transition: transform 0.5s ease;
+      min-height: 315px;
+      object-fit: cover;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.3);
+      }
+    }
+  }
+}

@@ -46,7 +46,7 @@ h1 {
   flex-wrap: wrap;
   gap: 1em;
 
-  @media (max-width: 500px) {
+  @media (max-width: 511px) {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -95,5 +95,10 @@ p {
 
 .relatedMovies {
   margin: 2em;
-  border-top: 1px solid lightgray;
+
+  h2 {
+    color: lightgray;
+    margin-bottom: 0;
+    border-bottom: 1px solid lightgray;
+  }
 }
