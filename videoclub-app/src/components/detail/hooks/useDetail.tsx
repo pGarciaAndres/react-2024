@@ -1,7 +1,6 @@
 import React from 'react'
-import { DetailAPI } from '../api/detailAPI.model'
-import { getDetail } from '../api/detailAPI'
-import { Detail } from '../model/detail.model'
+import { DetailAPI, getDetail } from '@/components/detail/api'
+import { Detail } from '@/components/detail/model'
 
 export const useDetail = (id: string) => {
   const [detail, setDetail] = React.useState<Detail>()
