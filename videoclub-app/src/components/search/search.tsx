@@ -32,7 +32,11 @@ export const Search = () => {
         onChange={(e) => setInput(e.target.value)}
       />
       {input && (
-        <button className={styles.button} onClick={() => setInput('')}>
+        <button
+          aria-label='Clear search'
+          className={styles.button}
+          onClick={() => setInput('')}
+        >
           <MdClear size={25} />
         </button>
       )}

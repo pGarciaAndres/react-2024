@@ -6,7 +6,7 @@ export const Header: React.FC = () => {
   return (
     <nav className={styles.container}>
       <img src={logo} alt='header image' />
-      <div className={styles.overlay} />
+      <div className={styles.overlay} role='overlay' />
     </nav>
   )
 }

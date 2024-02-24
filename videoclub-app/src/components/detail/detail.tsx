@@ -5,87 +5,51 @@ import {
   MdStar,
   MdAdd
 } from 'react-icons/md'
-import { routes } from '@/core/router'
-import { useNavigate } from 'react-router-dom'
-import { MovieList } from '@/components/movies/list/movieList'
-import { useSearch } from '@/components/search/hooks/useSearch'
-import { Context } from '@/core/context'
-import { useFavorites, useDetail } from './hooks'
+import { useFavorites } from './hooks'
 import styles from './detail.module.scss'
+import { Detail as DetailModel } from './model'
 
 type Props = {
-  id: string
+  detail: DetailModel
+  goBack: () => void
 }
 
 export const Detail: React.FC<Props> = (props: Props) => {
-  const navigate = useNavigate()
-  const { id } = props
-  const { detail } = useDetail(id)
-  const { isFavorite, toggleFav } = useFavorites(id)
-  const { search, setSearch } = React.useContext(Context)
-  const [input] = React.useState<string>(search)
-
-  React.useEffect(() => {
-    if (!detail) return
-    const relatedWord = detail.title.split(' ')[0]
-    setSearch(relatedWord)
-  })
-
-  const { data } = useSearch()
-
-  const goBack = () => {
-    setSearch(input)
-    navigate(routes.home)
-  }
-
-  if (!detail) {
-    return <div className={styles.container}>Loading...</div>
-  }
+  const { detail, goBack } = props
+  const { isFavorite, toggleFav } = useFavorites(detail.id)
 
   return (
-    <>
-      <div className={styles.container}>
-        {detail.poster && (
-          <img
-            className={styles.poster}
-            src={detail.poster}
-            alt={detail.title}
-          />
-        )}
-        <h1>{detail.title}</h1>
-        <div className={styles.buttonsContainer}>
-          <button className={styles.backButton} onClick={goBack}>
-            <MdOutlineArrowBackIosNew size={25} />
-            Back
-          </button>
-          <button
-            className={isFavorite ? styles.favButton : styles.noFavButton}
-            onClick={toggleFav}
-          >
-            {isFavorite ? (
-              <MdStar size={25} />
-            ) : (
-              <MdOutlineStarBorder size={25} />
-            )}
-            {isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-          </button>
-          <button className={styles.addButton}>
-            <MdAdd size={25} />
-          </button>
-        </div>
-        <div className={styles.info}>
-          <span>{`❤️ ${detail.rating} / 10`}</span>
-          <span>{`👍 ${detail.likes}`}</span>
-          <span>{`🗓️ Year: ${detail.year}`}</span>
-        </div>
-        <p>{detail.overview}</p>
-      </div>
-      {data && (
-        <div className={styles.relatedMovies}>
-          <h2>We think you'll like this</h2>
-          <MovieList movies={data.pages} />
-        </div>
+    <div className={styles.container}>
+      {detail.poster && (
+        <img className={styles.poster} src={detail.poster} alt={detail.title} />
       )}
-    </>
+      <h1>{detail.title}</h1>
+      <div className={styles.buttonsContainer}>
+        <button className={styles.backButton} onClick={goBack}>
+          <MdOutlineArrowBackIosNew size={25} />
+          Back
+        </button>
+        <button
+          className={isFavorite ? styles.favButton : styles.noFavButton}
+          onClick={toggleFav}
+        >
+          {isFavorite ? (
+            <MdStar size={25} />
+          ) : (
+            <MdOutlineStarBorder size={25} />
+          )}
+          {isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        </button>
+        <button className={styles.addButton}>
+          <MdAdd size={25} />
+        </button>
+      </div>
+      <div className={styles.info}>
+        <span>{`❤️ ${detail.rating} / 10`}</span>
+        <span>{`👍 ${detail.likes}`}</span>
+        <span>{`🗓️ Year: ${detail.year}`}</span>
+      </div>
+      <p>{detail.overview}</p>
+    </div>
   )
 }

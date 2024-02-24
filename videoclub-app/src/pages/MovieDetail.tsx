@@ -1,5 +1,5 @@
 import React from 'react'
-import { Detail } from '@/components/detail/detail'
+import { DetailContainer } from '@/components/detail/detailContainer'
 import { useParams } from 'react-router-dom'
 import { MovieLayout } from '@/layout/movieLayout'
 
@@ -8,7 +8,7 @@ export const MovieDetail: React.FC = () => {
 
   return (
     <MovieLayout>
-      <Detail id={id} />
+      <DetailContainer id={id} />
     </MovieLayout>
   )
 }

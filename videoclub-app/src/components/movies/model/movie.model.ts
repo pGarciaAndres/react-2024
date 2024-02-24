@@ -1,5 +1,5 @@
-export type MoviePageList = {
-  movies: MoviePage[]
+export type MovieParams = {
+  moviePageList: MoviePage[]
 }
 
 export type MoviePage = {

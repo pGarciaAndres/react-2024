@@ -22,7 +22,7 @@ export const Movies: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      {data && <MovieList movies={data.pages} />}
+      {data && <MovieList moviePageList={data.pages} />}
       {hasMoreElements && (
         <button
           className={styles.loadMoreButton}
