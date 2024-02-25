@@ -25,6 +25,7 @@ export const Movies: React.FC = () => {
       {data && <MovieList moviePageList={data.pages} />}
       {hasMoreElements && (
         <button
+          aria-label='Load more'
           className={styles.loadMoreButton}
           onClick={() => fetchNextPage()}
         >
