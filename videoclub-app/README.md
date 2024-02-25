@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# React Video Club Webapp using [The Movie Database API](https://developer.themoviedb.org/docs/getting-started)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Technology used:
+- SPA with React and TypeScript.
+- Vite for Setup.
+- Sass Modules for styling.
+- React Router for navigation.
+- Tanstack React Query for server state.
+- React Context.
+- Vitest & React Testing Library for Unit Testing.
+- Cypress for E2E Testing.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
+## Before
 ```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+git clone https://github.com/pGarciaAndres/react-2024.git
+cd '.\React 2024\videoclub-app\'
+npm install
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## How to RUN 
+```js
+npm run dev
+```
+## How to TEST 
+```js
+npm run test
+```
+## How to CYPRESS 
+```js
+npm run test:e2e
+```
+![image](https://github.com/pGarciaAndres/react-2024/assets/30140745/b63e7fe5-2d54-47e7-844c-634895f7d03c)
