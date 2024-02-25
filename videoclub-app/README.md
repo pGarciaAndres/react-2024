@@ -9,6 +9,9 @@ Technology used:
 - React Context.
 - Vitest & React Testing Library for Unit Testing.
 - Cypress for E2E Testing.
+- ⚠️ Found difficulties finding out `"account_id"` and `"session_id"` in the API Docs:
+  - 🚨 "Add favorite" just implemented with Local Storage (not recommended) instead of POST API.
+  - 🚨 "List favorites" just not implemented.
 
 ## Before
 ```js
