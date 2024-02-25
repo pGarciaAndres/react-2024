@@ -1,5 +1,6 @@
 ﻿# React 2024
 ## Exercise - [Go to Video Club Webapp](videoclub-app/)
+## Public Link --> [HERE]([videoclub-app/](https://celadon-clafoutis-d51e6d.netlify.app/))
 ## Home
 ![image](screenshots/home-large.jpg)
 ![image](screenshots/home-medium.jpg)
