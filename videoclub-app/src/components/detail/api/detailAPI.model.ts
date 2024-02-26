@@ -1,5 +1,5 @@
 export interface DetailAPI {
-  id: string
+  id: number
   title: string
   overview: string
   popularity: number

@@ -7,7 +7,7 @@ export const useDetail = (id: string) => {
 
   const mapDetailAPIToDetail = (detail: DetailAPI): Detail => {
     return {
-      id: detail.id,
+      id: detail.id.toString(),
       title: detail.title,
       overview: detail.overview,
       likes: (Math.round(detail.popularity * 10) / 10).toString(),

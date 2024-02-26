@@ -23,7 +23,9 @@ export const MovieList: React.FC<MovieParams> = (props: Props) => {
       {moviePageList.map((group: MoviePage, i: number) => (
         <React.Fragment key={i}>
           {group.movies.map((movie: MovieModel) => (
-            <Movie movie={movie} />
+            <React.Fragment key={movie.id}>
+              <Movie movie={movie} />
+            </React.Fragment>
           ))}
         </React.Fragment>
       ))}
