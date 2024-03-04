@@ -1,4 +1,4 @@
-# React Video Club Webapp using [The Movie Database API](https://developer.themoviedb.org/docs/getting-started)
+## Public Link --> [HERE](https://celadon-clafoutis-d51e6d.netlify.app/)
 
 Technology used:
 - SPA with React and TypeScript.
@@ -9,9 +9,6 @@ Technology used:
 - React Context.
 - Vitest & React Testing Library for Unit Testing.
 - Cypress for E2E Testing.
-- ⚠️ Found difficulties finding out `"account_id"` and `"session_id"` in the API Docs:
-  - 🚨 "Add favorite" just implemented with Local Storage (not recommended) instead of POST API.
-  - 🚨 "List favorites" just not implemented.
 
 ## Before
 ```js
@@ -31,4 +28,5 @@ npm run test
 ```js
 npm run test:e2e
 ```
-![image](https://github.com/pGarciaAndres/react-2024/assets/30140745/b63e7fe5-2d54-47e7-844c-634895f7d03c)
+
+
