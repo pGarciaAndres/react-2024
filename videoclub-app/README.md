@@ -1,4 +1,5 @@
 ## Public Link --> [HERE](https://celadon-clafoutis-d51e6d.netlify.app/)
+## Screenshots below ⬇️
 
 Technology used:
 - SPA with React and TypeScript.
@@ -29,4 +30,16 @@ npm run test
 npm run test:e2e
 ```
 
-
+## Home
+![image](public/screenshots/home-large.jpg)
+![image](public/screenshots/home-medium.jpg)
+![image](public/screenshots/home-small.jpg)
+## Detail
+![image](public/screenshots/detail-large.jpg)
+![image](public/screenshots/detail-medium.jpg)
+![image](public/screenshots/detail-small.jpg)
+## Unit Test
+![image](public/screenshots/unit-test.jpg)
+## Cypress Test
+![image](public/screenshots/cypress-1.jpg)
+![image](public/screenshots/cypress-2.jpg)
