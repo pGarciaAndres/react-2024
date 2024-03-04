@@ -5,6 +5,12 @@ export const useFavorites = (id: string) => {
   const favorites = getFavoriteMovies()
   const [isFavorite, setIsFavorite] = React.useState(favorites.includes(id))
 
+  React.useEffect(() => {
+    const favorites = getFavoriteMovies()
+    const newFavorites = favorites.includes(id)
+    setIsFavorite(newFavorites)
+  }, [id])
+
   const toggleFav = () => {
     setIsFavorite(!isFavorite)
     const newFavorites = isFavorite
