@@ -1,16 +1,7 @@
-﻿# React 2024
-## Exercise - [Go to Video Club Webapp](videoclub-app/)
-## Public Link --> [HERE](https://celadon-clafoutis-d51e6d.netlify.app/)
-## Home
-![image](screenshots/home-large.jpg)
-![image](screenshots/home-medium.jpg)
-![image](screenshots/home-small.jpg)
-## Detail
-![image](screenshots/detail-large.jpg)
-![image](screenshots/detail-medium.jpg)
-![image](screenshots/detail-small.jpg)
-## Unit Test
-![image](screenshots/unit-test.jpg)
-## Cypress Test
-![image](screenshots/cypress-1.jpg)
-![image](screenshots/cypress-2.jpg)
+# React 2024 ![image](https://github.com/pGarciaAndres/react-2023/assets/30140745/5baa2948-8ca1-4c8f-ab14-d778f755d0c4)
+
+
+
+| Project       | Description                                             | Code                              |
+| ------------- | ------------------------------------------------------- | --------------------------------- |
+| Video Club    | React Router, TanStack Query, RTL Unit Test, Cypress    | [Ver](videoclub-app)  |
